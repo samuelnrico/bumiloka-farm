@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Persediaan Gudang | BumiLoka Farm</title><link rel="stylesheet" href="/css/persediaan.css">
+</head><body><main class="halaman">
+<header class="kepala-halaman"><div><p class="eyebrow">OPERASIONAL FARM</p><h1>Persediaan Gudang</h1><p class="subjudul">Pantau stok produk siap jual serta bahan operasional seperti pupuk, bibit, pakan, dan obat. Stok diperbarui dari kegiatan terkait, bukan diinput ulang di halaman ini.</p></div>
+<nav class="navigasi-modul" aria-label="Navigasi modul"><a href="/dashboard">Dashboard</a></nav></header>
+<p id="pesan-global" class="pesan-global" role="status" hidden></p>
+<section class="kartu-ringkasan" aria-label="Ringkasan gudang">
+<article class="kartu-stat"><span class="label-stat">Produk Terdaftar</span><strong id="stat-produk">-</strong><span class="catatan-stat">Produk siap jual</span></article>
+<article class="kartu-stat"><span class="label-stat">Produk Tersedia</span><strong id="stat-tersedia">-</strong><span class="catatan-stat">Stok lebih dari nol</span></article>
+<article class="kartu-stat"><span class="label-stat">Jenis Bahan</span><strong id="stat-bahan">-</strong><span class="catatan-stat">Bahan operasional terdaftar</span></article>
+<article class="kartu-stat"><span class="label-stat">Bahan Menipis</span><strong id="stat-menipis">-</strong><span class="catatan-stat">Stok mencapai batas minimum</span></article>
+</section>
+<section class="panel"><div class="judul-panel"><div><h2>Stok Produk Siap Jual</h2><p>Stok berasal dari hasil produksi yang dikonfirmasi dan berkurang melalui penjualan.</p></div><button class="tombol sekunder" id="tombol-muat-ulang" type="button">Muat Ulang</button></div>
+<div class="filter-bar"><label class="filter-pencarian">Cari produk<input type="search" id="cari-produk" placeholder="Nama produk..."></label><label>Kategori<select id="filter-kategori"><option value="semua">Semua kategori</option><option value="perkebunan">Perkebunan</option><option value="peternakan">Peternakan</option></select></label><label>Ketersediaan<select id="filter-stok"><option value="semua">Semua</option><option value="tersedia">Tersedia</option><option value="habis">Habis</option></select></label></div>
+<p id="status-produk" class="status-tabel">Memuat stok produk...</p><div class="tabel-scroll"><table><thead><tr><th>Produk</th><th>Kategori</th><th>Stok Tersedia</th><th>Status</th></tr></thead><tbody id="daftar-produk"></tbody></table></div></section>
+<section class="panel"><div class="judul-panel"><div><h2>Stok Bahan Operasional</h2><p>Pupuk, bibit, pestisida, pakan, obat, kemasan, dan perlengkapan. Pembelian menambah stok; pemakaian menguranginya.</p><p class="catatan-bantu">Untuk menambah atau mengurangi bahan, gunakan halaman Barang Masuk. Persediaan ini hanya menampilkan jumlah terkini.</p></div></div>
+<div class="filter-bar bahan-filter"><label class="filter-pencarian">Cari bahan<input type="search" id="cari-bahan" placeholder="Nama bahan..."></label><label>Kategori<select id="filter-kategori-bahan"><option value="semua">Semua kategori</option><option value="bibit">Bibit</option><option value="pupuk">Pupuk</option><option value="pestisida">Pestisida</option><option value="pakan">Pakan</option><option value="obat_ternak">Obat ternak</option><option value="kemasan">Kemasan</option><option value="perlengkapan">Perlengkapan</option><option value="lainnya">Lainnya</option></select></label><label>Status stok<select id="filter-status-bahan"><option value="semua">Semua status</option><option value="aman">Stok aman</option><option value="menipis">Stok menipis</option><option value="habis">Stok habis</option></select></label></div>
+<p id="status-bahan" class="status-tabel">Memuat stok bahan...</p><div class="tabel-scroll"><table><thead><tr><th>Nama Bahan</th><th>Kategori</th><th>Stok Tersedia</th><th>Batas Minimum</th><th>Status</th></tr></thead><tbody id="daftar-bahan"></tbody></table></div></section>
+<section class="panel"><div class="judul-panel"><div><h2>Riwayat Perubahan Stok Produk</h2><p>Menampilkan perubahan stok produk dari produksi, penjualan, dan koreksi yang tercatat.</p></div></div>
+<label class="filter-pencarian filter-riwayat">Cari riwayat<input type="search" id="cari-pergerakan" placeholder="Produk, jenis perubahan, keterangan..."></label><p id="status-pergerakan" class="status-tabel">Memuat riwayat...</p><div class="tabel-scroll riwayat-stok-scroll"><table><thead><tr><th>Tanggal</th><th>Produk</th><th>Perubahan</th><th>Jumlah</th><th>Keterangan</th></tr></thead><tbody id="daftar-pergerakan"></tbody></table></div></section>
+<footer class="kaki-halaman"><a href="/dashboard">Kembali ke Dashboard</a><span>BumiLoka Farm · Persediaan Gudang</span></footer>
+</main><script src="/js/persediaan.js"></script></body></html>

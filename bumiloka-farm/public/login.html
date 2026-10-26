@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Pemilik | BumiLoka Farm</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f4f1e8;
+            color: #243a2c;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 400px;
+            padding: 32px;
+            border-radius: 16px;
+            background: white;
+            box-shadow: 0 8px 30px #243a2c14;
+        }
+
+        h1 { margin-bottom: 6px; font-size: 26px; }
+        p { color: #657267; line-height: 1.5; }
+
+        label {
+            display: block;
+            margin: 18px 0 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccd4cc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 24px;
+            padding: 13px;
+            border: 0;
+            border-radius: 8px;
+            background: #28543b;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:disabled { opacity: 0.65; }
+
+        #pesan { min-height: 24px; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <main class="login-card">
+        <h1>BumiLoka Farm</h1>
+        <p>Masuk ke dashboard pengelolaan usaha.</p>
+
+        <form id="form-login">
+            <label for="nama_pengguna">Nama pengguna</label>
+            <input
+                id="nama_pengguna"
+                name="nama_pengguna"
+                autocomplete="username"
+                required
+            >
+
+            <label for="kata_sandi">Kata sandi</label>
+            <input
+                id="kata_sandi"
+                name="kata_sandi"
+                type="password"
+                autocomplete="current-password"
+                required
+            >
+
+            <button id="tombol-login" type="submit">Masuk</button>
+            <p id="pesan" role="status"></p>
+        </form>
+
+        <p style="text-align: center; margin-top: 20px;">
+            <a href="/" style="color: #28543b; text-decoration: none; font-size: 14px;">
+                Kembali ke Halaman Utama
+            </a>
+        </p>
+    </main>
+    
+
+    <script>
+        const form = document.getElementById('form-login');
+        const pesan = document.getElementById('pesan');
+        const tombol = document.getElementById('tombol-login');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            pesan.textContent = '';
+            tombol.disabled = true;
+
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    credentials: 'same-origin',
+                    body: JSON.stringify({
+                        nama_pengguna: form.nama_pengguna.value,
+                        kata_sandi: form.kata_sandi.value,
+                    }),
+                });
+
+                const hasil = await response.json();
+
+                if (!response.ok) {
+                    pesan.textContent = hasil.pesan || 'Login gagal.';
+                    return;
+                }
+
+                window.location.href = '/dashboard';
+            } catch (error) {
+                pesan.textContent = 'Server tidak dapat dihubungi.';
+            } finally {
+                tombol.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

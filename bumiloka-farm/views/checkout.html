@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#245b3d">
+  <meta name="description" content="Periksa detail pesanan BumiLoka Farm sebelum melanjutkan ke WhatsApp.">
+  <title>Checkout | BumiLoka Farm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/publik.css?v=20261026-nav">
+  <link rel="stylesheet" href="/css/checkout.css">
+</head>
+<body>
+  <a class="skip-link" href="#konten">Lewati ke konten</a>
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="BumiLoka Farm, beranda">
+        <img class="brand-logo" id="logoUsahaHeader" alt="Logo usaha" hidden>
+        <span class="brand-copy"><strong id="namaUsahaHeader">BumiLoka <em>Farm</em></strong><small id="sloganUsahaHeader">Hasil kebun &amp; peternakan</small></span>
+      </a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Buka navigasi" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button>
+      <nav class="main-nav" id="mainNav" aria-label="Navigasi utama">
+        <a class="nav-link" href="/">Beranda</a>
+        <a class="nav-link" href="/#produk">Katalog</a>
+        <a class="nav-link" href="/#tentang">Tentang Kami</a>
+        <a class="nav-link" href="/#kontak">Kontak</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-cart" href="/keranjang" aria-label="Buka keranjang belanja">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+          <span>Keranjang</span><b class="cart-count" id="cartCount">0</b>
+        </a>
+        <a href="/login" class="admin-login-link" aria-label="Login Admin" title="Login Admin">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 21a7 7 0 0 1 14 0"></path></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="konten" class="checkout-page">
+    <section class="checkout-intro"><div class="container">
+      <div class="checkout-breadcrumb"><a href="/">Beranda</a><span>/</span><a href="/keranjang">Keranjang</a><span>/</span><span>Checkout</span></div>
+      <span class="eyebrow"><span class="eyebrow-dot"></span> LANGKAH TERAKHIR</span>
+      <h1>Periksa pesanan <span>Anda.</span></h1>
+      <p>Pastikan detail dan jumlah produk sudah benar sebelum melanjutkan ke WhatsApp BumiLoka Farm.</p>
+    </div></section>
+
+    <section class="container checkout-layout">
+      <div class="checkout-main">
+        <section class="checkout-panel" aria-labelledby="customerTitle">
+          <div class="checkout-panel-heading"><span class="checkout-step">01</span><div><h2 id="customerTitle">Informasi pelanggan</h2><p>Data ini akan disertakan dalam pesan pesanan.</p></div></div>
+          <form id="checkoutForm" novalidate>
+            <div class="checkout-fields">
+              <label class="checkout-field" for="customerName"><span>Nama lengkap <b>*</b></span><input id="customerName" name="nama" type="text" maxlength="100" autocomplete="name" placeholder="Masukkan nama Anda" required></label>
+              <label class="checkout-field" for="customerPhone"><span>Nomor WhatsApp Anda <b>*</b></span><input id="customerPhone" name="whatsapp" type="tel" maxlength="24" autocomplete="tel" inputmode="tel" placeholder="Contoh: 081234567890" required><small>Nomor ini untuk memudahkan pihak usaha menghubungi Anda.</small></label>
+              <label class="checkout-field checkout-field-full" for="orderNote"><span>Catatan pesanan <small>(opsional)</small></span><textarea id="orderNote" name="catatan" rows="3" maxlength="500" placeholder="Contoh: waktu yang diinginkan atau catatan produk"></textarea></label>
+            </div>
+            <div class="checkout-form-notice" id="checkoutNotice" role="alert" hidden></div>
+            <button class="button button-primary checkout-submit" id="sendOrderButton" type="submit" disabled>Lanjutkan ke WhatsApp <span aria-hidden="true">↗</span></button>
+            <p class="checkout-privacy">Dengan melanjutkan, aplikasi akan membuka WhatsApp dengan rincian pesanan yang Anda tinjau.</p>
+          </form>
+        </section>
+        <section class="checkout-panel checkout-products-panel" aria-labelledby="orderItemsTitle">
+          <div class="checkout-panel-heading"><span class="checkout-step">02</span><div><h2 id="orderItemsTitle">Rincian pesanan</h2><p id="checkoutItemCount">Memeriksa produk...</p></div><a href="/keranjang" class="checkout-edit-link">Ubah keranjang</a></div>
+          <div id="checkoutItems" class="checkout-items" aria-live="polite"><div class="checkout-loading">Memeriksa ketersediaan produk...</div></div>
+          <div class="checkout-total-row"><span>Total harga produk</span><strong id="checkoutTotal">Rp0</strong></div>
+          <p class="checkout-cost-note">Biaya pengiriman dan biaya tambahan, jika ada, dikonfirmasi langsung oleh pihak BumiLoka Farm. Total di atas hanya harga produk.</p>
+        </section>
+      </div>
+
+      <aside class="checkout-aside">
+        <div class="checkout-aside-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 39V21"/><path d="M24 29C12 29 7 22 8 11c11 0 18 5 16 18Z"/><path d="M24 23C24 12 31 6 41 7c1 11-5 18-17 16Z"/></svg></div>
+        <span class="summary-eyebrow">PEMESANAN MUDAH</span><h2>Pesanan diteruskan melalui WhatsApp</h2>
+        <p>Pesan akan disusun otomatis. Anda masih perlu menekan tombol kirim di WhatsApp agar pesanan benar-benar terkirim.</p>
+        <ul><li>Harga dan stok diperiksa ulang.</li><li>Rincian produk disertakan dalam pesan.</li><li>Pesanan belum dianggap dibayar atau selesai.</li></ul>
+        <a class="checkout-back-link" href="/keranjang">← Kembali ke keranjang</a>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-main">
+    <div class="footer-brand"><a class="brand brand-footer" href="/" aria-label="BumiLoka Farm, kembali ke beranda"><img class="brand-logo brand-logo-footer" id="logoUsahaFooter" alt="Logo usaha" hidden><span class="brand-copy"><strong id="namaUsahaFooter">BumiLoka <em>Farm</em></strong><small id="sloganUsahaFooter">Hasil kebun &amp; peternakan</small></span></a><p>Hasil kebun dan peternakan yang tersedia untuk Anda.</p></div>
+    <div class="footer-column"><h3>Jelajahi</h3><a href="/">Beranda</a><a href="/#produk">Katalog Produk</a><a href="/keranjang">Keranjang</a></div>
+    <div class="footer-column"><h3>Pemesanan</h3><p>Periksa kembali jumlah dan produk sebelum mengirimkan pesanan melalui WhatsApp.</p></div>
+  </div><div class="container footer-bottom"><span>© <span id="currentYear"></span> <span id="namaUsahaCopyright">BumiLoka Farm</span></span><span>Dari kebun dan peternakan, untuk Anda.</span></div></footer>
+  <div class="toast" id="siteToast" role="status" aria-live="polite"></div>
+  <script src="/js/publik.js?v=20261026-nav" defer></script><script src="/js/checkout.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operasional | BumiLoka Farm</title>
+  <link rel="stylesheet" href="/css/barang-masuk.css">
+</head>
+<body>
+  <main class="page">
+    <header class="page-header">
+      <div><p class="eyebrow">OPERASIONAL USAHA</p><h1>Operasional</h1><p class="muted">Catat barang yang dibeli dan pemakaiannya. Stok dihitung otomatis.</p></div>
+      <nav class="navigasi-modul" aria-label="Navigasi modul"><a href="/dashboard">Dashboard</a></nav>
+    </header>
+    <div id="pesan" class="message" role="status" hidden></div>
+    <section class="summary-grid" id="ringkasan">
+      <article class="summary-card"><span>Jenis barang</span><strong id="jumlah-jenis">0</strong></article>
+      <article class="summary-card"><span>Stok menipis</span><strong id="jumlah-menipis">0</strong></article>
+      <article class="summary-card"><span>Total pembelian tercatat</span><strong id="total-pembelian">Rp0</strong></article>
+    </section>
+    <nav class="tabs" aria-label="Menu barang operasional">
+      <button type="button" class="tab active" data-tab="stok">Daftar barang & stok</button>
+      <button type="button" class="tab" data-tab="beli">Catat pembelian</button>
+      <button type="button" class="tab" data-tab="pakai">Catat pemakaian</button>
+      <button type="button" class="tab" data-tab="riwayat">Riwayat</button>
+    </nav>
+    <section class="panel tab-panel" id="panel-stok">
+      <div class="section-heading"><div><h2>Barang operasional</h2><p class="muted">Pupuk, bibit, pakan, obat, kemasan, dan perlengkapan.</p></div></div>
+      <form id="form-barang" class="form-grid">
+        <label>Nama barang<input name="nama_barang" maxlength="150" required placeholder="Contoh: Pupuk kompos"></label>
+        <label>Kategori<select name="kategori" required><option value="lainnya">Lainnya</option><option value="bibit">Bibit</option><option value="pupuk">Pupuk</option><option value="pestisida">Pestisida</option><option value="pakan">Pakan</option><option value="obat_ternak">Obat ternak</option><option value="kemasan">Kemasan</option><option value="perlengkapan">Perlengkapan</option></select></label>
+        <label>Satuan<input name="satuan" maxlength="20" required placeholder="kg, liter, pak, botol"></label>
+        <label>Batas stok menipis (opsional)<input name="stok_minimum" type="number" min="0" step="0.001" value="0"><small>Gunakan 0 jika tidak membutuhkan peringatan stok minimum.</small></label>
+        <div class="form-action"><button class="primary" type="submit">Simpan barang</button></div>
+      </form>
+      <div class="table-wrap"><table><thead><tr><th>Barang</th><th>Kategori</th><th>Stok masuk</th><th>Terpakai</th><th>Stok tersedia</th><th>Nilai pembelian</th><th>Status</th></tr></thead><tbody id="tabel-stok"><tr><td colspan="7">Memuat data...</td></tr></tbody></table></div>
+    </section>
+    <section class="panel tab-panel" id="panel-beli" hidden>
+      <div class="section-heading"><div><h2>Catat pembelian</h2><p class="muted">Total biaya dihitung otomatis dari jumlah dikali harga satuan.</p></div></div>
+      <form id="form-beli" class="form-grid">
+        <label>Barang<select name="barang_operasional_id" id="pilih-beli" required></select></label>
+        <label>Tanggal pembelian<input type="date" name="tanggal_pembelian" required></label>
+        <label>Jumlah dibeli<input name="jumlah" type="number" min="0.001" step="0.001" required></label>
+        <label>Harga per satuan (Rp)<input name="harga_satuan" type="number" min="0" step="0.01" required></label>
+        <label>Pemasok (opsional)<input name="pemasok" maxlength="150"></label>
+        <div class="form-action"><button class="primary" type="submit">Simpan pembelian</button></div>
+      </form>
+      <p class="helper">Pembelian dicatat sebagai pengeluaran saat transaksi pembelian. Pemakaian berikutnya hanya mengurangi stok dan tidak membuat biaya pembelian baru.</p>
+    </section>
+    <section class="panel tab-panel" id="panel-pakai" hidden>
+      <div class="section-heading"><div><h2>Catat pemakaian</h2><p class="muted">Pemakaian mengurangi stok barang operasional dan tidak boleh melebihi stok tersedia.</p></div></div>
+      <form id="form-pakai" class="form-grid">
+        <label>Barang<select name="barang_operasional_id" id="pilih-pakai" required></select></label>
+        <label>Tanggal pemakaian<input type="date" name="tanggal_pemakaian" required></label>
+        <label>Jumlah digunakan<input name="jumlah" type="number" min="0.001" step="0.001" required></label>
+        <label>Keterangan pemakaian<input name="keterangan" maxlength="300" required placeholder="Contoh: pemupukan bedeng cabai"></label>
+        <div class="form-action"><button class="primary" type="submit">Simpan pemakaian</button></div>
+      </form>
+    </section>
+    <section class="panel tab-panel" id="panel-riwayat" hidden>
+      <div class="section-heading"><div><h2>Riwayat pembelian dan pemakaian</h2><p class="muted">Kedua riwayat ditampilkan berdampingan agar mudah dibandingkan.</p></div><button class="secondary" id="muat-riwayat" type="button">Muat ulang</button></div>
+      <div class="history-grid">
+        <section class="history-card"><h3>Riwayat pembelian</h3><div class="table-wrap history-scroll"><table><thead><tr><th>Tanggal</th><th>Barang</th><th>Jumlah</th><th>Total</th><th>Pemasok</th></tr></thead><tbody id="tabel-riwayat-pembelian"><tr><td colspan="5">Memuat data...</td></tr></tbody></table></div></section>
+        <section class="history-card"><h3>Riwayat pemakaian</h3><div class="table-wrap history-scroll"><table><thead><tr><th>Tanggal</th><th>Barang</th><th>Jumlah</th><th>Keterangan</th></tr></thead><tbody id="tabel-riwayat-pemakaian"><tr><td colspan="4">Memuat data...</td></tr></tbody></table></div></section>
+      </div>
+    </section>
+  </main>
+  <script src="/js/barang-masuk.js" defer></script>
+</body>
+</html>

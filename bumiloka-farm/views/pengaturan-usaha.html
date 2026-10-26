@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pengaturan Usaha | BumiLoka Farm</title>
+  <link rel="stylesheet" href="/css/pengaturan-usaha.css">
+</head>
+<body>
+  <main class="settings-page">
+    <header class="topbar">
+      <a class="dashboard-link" href="/dashboard" aria-label="Kembali ke Dashboard">← Dashboard</a>
+      <span class="topbar-label">Pengaturan Usaha</span>
+    </header>
+    <div class="page-content">
+      <header class="page-head">
+        <div><p class="eyebrow">PREFERENSI USAHA</p><h1>Pengaturan Usaha</h1><p>Atur identitas yang digunakan pada halaman publik, katalog, dan pemesanan pelanggan.</p></div>
+      </header>
+      <section class="panel">
+        <div class="panel-title"><h2>Identitas usaha</h2><p>Setelah disimpan, nama, slogan, logo, alamat, dan nomor WhatsApp akan digunakan di halaman publik. Perubahan tidak mengubah nama proyek atau nama database.</p></div>
+        <form id="form-pengaturan">
+          <div class="form-grid">
+            <label class="field full"><span>Nama usaha <b>*</b></span><input id="nama_usaha" name="nama_usaha" maxlength="150" required placeholder="Contoh: BumiLoka Farm"></label>
+            <label class="field full"><span>Slogan</span><input id="slogan" name="slogan" maxlength="200" placeholder="Slogan singkat usaha"></label>
+            <label class="field"><span>Nomor WhatsApp usaha</span><input id="nomor_whatsapp" name="nomor_whatsapp" maxlength="25" placeholder="Contoh: 62812xxxxxxx" inputmode="tel"><small>Gunakan kode negara, misalnya 62. Nomor ini dipakai untuk tautan pemesanan.</small></label>
+            <label class="field"><span>Unggah logo usaha</span><input id="file_logo" name="logo" type="file" accept="image/png,image/jpeg,image/webp,image/gif"><small>Pilih gambar dari perangkat Anda (JPG, PNG, WEBP, atau GIF; maksimal 3 MB). Tidak perlu URL internet.</small><button class="button button-secondary" type="button" id="unggah-logo">Unggah Logo</button></label>
+            <label class="field full"><span>Alamat usaha</span><textarea id="alamat" name="alamat" rows="3" placeholder="Alamat atau wilayah usaha"></textarea></label>
+          </div>
+          <div class="preview-wrap"><div class="preview-label">Pratinjau identitas</div><div class="preview" id="preview"><div class="logo-placeholder" id="logo-placeholder">BL</div><img id="logo-preview" alt="Pratinjau logo" hidden><div><strong id="preview-nama">BumiLoka Farm</strong><p id="preview-slogan">Slogan usaha</p><small id="preview-alamat"></small></div></div></div>
+          <div class="actions"><span id="status" role="status" aria-live="polite">Memuat pengaturan...</span><button class="button" type="submit" id="simpan">Simpan Pengaturan</button></div>
+        </form>
+      </section>
+      <section class="help-panel"><h2>Perubahan akan terlihat di mana?</h2><ul><li><strong>Nama usaha dan slogan:</strong> identitas pada header/footer halaman beranda dan katalog.</li><li><strong>Logo:</strong> menggunakan file gambar yang Anda unggah dari komputer, lalu disimpan di folder publik aplikasi.</li><li><strong>Nomor WhatsApp:</strong> tujuan tombol kontak dan checkout pelanggan.</li><li><strong>Alamat usaha:</strong> disimpan untuk informasi identitas; belum ditampilkan pada halaman publik secara otomatis.</li></ul></section>
+    </div>
+  </main>
+  <script src="/js/pengaturan-usaha.js"></script>
+</body>
+</html>

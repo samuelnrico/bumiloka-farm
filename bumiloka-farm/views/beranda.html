@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#245b3d">
+  <meta name="description" content="Temukan hasil perkebunan dan peternakan BumiLoka Farm. Lihat stok dan harga, lalu pesan dengan mudah.">
+  <title>BumiLoka Farm | Hasil Kebun & Peternakan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/publik.css?v=20261026-nav">
+  <link rel="stylesheet" href="/css/beranda.css?v=20261026-nav">
+</head>
+<body>
+  <a class="skip-link" href="#konten">Lewati ke konten</a>
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="BumiLoka Farm, beranda">
+        <img class="brand-logo" id="logoUsahaHeader" alt="Logo usaha" hidden>
+        <span class="brand-copy"><strong id="namaUsahaHeader">BumiLoka <em>Farm</em></strong><small id="sloganUsahaHeader">Hasil kebun &amp; peternakan</small></span>
+      </a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Buka navigasi" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button>
+      <nav class="main-nav" id="mainNav" aria-label="Navigasi utama">
+        <a class="nav-link active" href="/" aria-current="page">Beranda</a>
+        <a class="nav-link" href="/#produk">Katalog</a>
+        <a class="nav-link" href="/#tentang">Tentang Kami</a>
+        <a class="nav-link" href="/#kontak">Kontak</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-cart" href="/keranjang" aria-label="Buka keranjang belanja">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+          <span>Keranjang</span><b class="cart-count" id="cartCount">0</b>
+        </a>
+        <a href="/login" class="admin-login-link" aria-label="Login Admin" title="Login Admin">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 21a7 7 0 0 1 14 0"></path></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="konten">
+    <section class="hero" id="beranda" aria-labelledby="heroTitle">
+      <div class="hero-photo" role="img" aria-label="Hamparan lahan pertanian hijau"></div><div class="hero-shade"></div>
+      <div class="container hero-content">
+        <span class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> Tumbuh dekat dengan alam</span>
+        <h1 id="heroTitle">Dari bumi yang dirawat,<br><span>untuk hidup yang lebih baik.</span></h1>
+        <p>Jelajahi hasil perkebunan dan peternakan BumiLoka Farm. Periksa harga serta ketersediaan produk, lalu pesan dengan praktis.</p>
+        <div class="hero-actions"><a class="button button-light" href="#produk">Jelajahi produk <span aria-hidden="true">↘</span></a><a class="hero-text-link" href="#tentang">Cerita kami <span aria-hidden="true">→</span></a></div>
+        <div class="hero-note"><span class="hero-note-icon" aria-hidden="true">✳</span><span><strong>Produk yang tercatat tersedia</strong><small>Katalog mengikuti stok siap jual terbaru.</small></span></div>
+      </div>
+      <div class="hero-bottom container"><span>01 / BUMILOKA FARM</span><span>PERKEBUNAN <i>·</i> PETERNAKAN</span></div>
+      <div class="hero-orbit hero-orbit-one"></div><div class="hero-orbit hero-orbit-two"></div>
+    </section>
+
+    <section class="trust-strip" aria-label="Keunggulan BumiLoka Farm"><div class="container trust-grid">
+      <div class="trust-item"><span class="trust-icon">✳</span><span><strong>Hasil perkebunan</strong><small>Produk kebun sesuai stok</small></span></div>
+      <div class="trust-item"><span class="trust-icon">⌁</span><span><strong>Hasil peternakan</strong><small>Dipilih berdasarkan ketersediaan</small></span></div>
+      <div class="trust-item"><span class="trust-icon">↗</span><span><strong>Pemesanan praktis</strong><small>Lanjutkan pesanan melalui WhatsApp</small></span></div>
+    </div></section>
+
+    <section class="section products-section" id="produk" aria-labelledby="productsTitle">
+      <div class="container">
+        <div class="section-heading"><div><span class="eyebrow">KATALOG BUMILOKA</span><h2 id="productsTitle">Pilih yang segar,<br><span>sesuai kebutuhan.</span></h2><p>Telusuri produk dari dua bidang usaha kami. Geser ke samping untuk melihat pilihan lainnya.</p></div><span class="availability-note"><span class="status-dot"></span> Stok siap jual</span></div>
+        <div class="shelf-section" id="shelfPerkebunan"><div class="shelf-heading"><div><span class="shelf-kicker">01 / HASIL BUMI</span><h3>Perkebunan</h3><p>Hasil kebun untuk kebutuhan sehari-hari.</p></div><div class="shelf-controls"><button class="shelf-arrow" type="button" data-scroll-shelf="perkebunan" data-direction="-1" aria-label="Geser produk perkebunan ke kiri">←</button><button class="shelf-arrow" type="button" data-scroll-shelf="perkebunan" data-direction="1" aria-label="Geser produk perkebunan ke kanan">→</button></div></div><div class="product-shelf" id="perkebunanGrid" aria-live="polite"><div class="loading-state"><span class="loading-spinner"></span><p>Memuat hasil perkebunan...</p></div></div></div>
+        <div class="shelf-section livestock-shelf" id="shelfPeternakan"><div class="shelf-heading"><div><span class="shelf-kicker">02 / HASIL TERNAK</span><h3>Peternakan</h3><p>Produk peternakan dengan informasi harga dan stok.</p></div><div class="shelf-controls"><button class="shelf-arrow" type="button" data-scroll-shelf="peternakan" data-direction="-1" aria-label="Geser produk peternakan ke kiri">←</button><button class="shelf-arrow" type="button" data-scroll-shelf="peternakan" data-direction="1" aria-label="Geser produk peternakan ke kanan">→</button></div></div><div class="product-shelf" id="peternakanGrid" aria-live="polite"><div class="loading-state"><span class="loading-spinner"></span><p>Memuat hasil peternakan...</p></div></div></div>
+        <div class="catalog-actions"><div><strong>Belum menemukan produk yang dicari?</strong><span>Lihat seluruh produk yang tersedia dalam satu daftar.</span></div><a class="button button-green" href="/katalog">Lihat semua produk <span aria-hidden="true">↗</span></a></div>
+        <div class="section-bottom-note"><span>Harga dan ketersediaan mengikuti data katalog.</span><span>Pesanan dilanjutkan melalui WhatsApp.</span></div>
+      </div>
+    </section>
+
+    <section class="story-section" id="tentang" aria-labelledby="storyTitle"><div class="container story-grid">
+      <div class="story-visual reveal-on-scroll"><div class="story-image-main"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1100&q=85" alt="Hamparan lahan pertanian hijau" loading="lazy"></div><div class="story-image-accent"><img src="https://images.unsplash.com/photo-1499529112087-3cb3b73ff566?auto=format&fit=crop&w=500&q=80" alt="Tanaman hijau yang tumbuh subur" loading="lazy"></div><div class="story-image-tag"><span class="tag-leaf">✳</span><span><strong>BumiLoka Farm</strong><small>Perkebunan & peternakan</small></span></div><span class="story-stamp">TUMBUH<br>DENGAN BUMI</span></div>
+      <div class="story-copy reveal-on-scroll"><span class="eyebrow">CERITA KAMI</span><h2 id="storyTitle">Merawat prosesnya,<br><span>menghargai hasilnya.</span></h2><p>BumiLoka Farm menyatukan kegiatan perkebunan dan peternakan dalam satu usaha. Kami ingin pelanggan dapat mengenal produk, melihat harga, dan memeriksa ketersediaan sebelum melakukan pemesanan.</p><p>Karena itu, katalog publik menampilkan produk yang tercatat memiliki stok siap jual. Informasi dibuat sederhana agar Anda bisa memilih dengan lebih jelas dan menghubungi kami tanpa langkah yang berbelit.</p><div class="story-values"><div><span class="value-number">01</span><strong>Jelas</strong><small>Harga dan satuan ditampilkan.</small></div><div><span class="value-number">02</span><strong>Terarah</strong><small>Produk dikelompokkan per bidang.</small></div><div><span class="value-number">03</span><strong>Praktis</strong><small>Pemesanan dilanjutkan via WhatsApp.</small></div></div><a class="text-link" href="#kontak">Hubungi BumiLoka <span aria-hidden="true">→</span></a></div>
+    </div></section>
+
+    <section class="order-banner" aria-labelledby="orderTitle"><div class="container order-banner-inner"><div><span class="eyebrow eyebrow-light">DARI BUMILOKA UNTUK ANDA</span><h2 id="orderTitle">Sudah menemukan yang dibutuhkan?</h2><p>Pilih produk, tambahkan ke keranjang, lalu lanjutkan pemesanan dengan praktis.</p></div><a class="button button-light" href="/katalog">Jelajahi katalog <span aria-hidden="true">↗</span></a><div class="banner-decoration" aria-hidden="true">✳</div></div></section>
+  </main>
+
+  <footer class="site-footer" id="kontak"><div class="container footer-main">
+    <div class="footer-brand"><a class="brand brand-footer" href="/" aria-label="BumiLoka Farm, kembali ke beranda"><img class="brand-logo brand-logo-footer" id="logoUsahaFooter" alt="Logo usaha" hidden><span class="brand-copy"><strong id="namaUsahaFooter">BumiLoka <em>Farm</em></strong><small id="sloganUsahaFooter">Hasil kebun &amp; peternakan</small></span></a><p>Hasil perkebunan dan peternakan, dengan informasi produk yang mudah dijelajahi.</p><div class="footer-socials" aria-label="Media sosial BumiLoka"><span class="social-label">Ikuti dan hubungi kami</span><a class="social-icon social-instagram" id="footerInstagram" href="#kontak" aria-label="Instagram BumiLoka Farm" title="Instagram" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-dot" cx="17.5" cy="6.5" r="1"/></svg></a><a class="social-icon social-facebook" id="footerFacebook" href="#kontak" aria-label="Facebook BumiLoka Farm" title="Facebook" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h3l.5-3H14V8c0-.9.3-1.5 1.6-1.5h2V3.2c-.8-.1-1.8-.2-2.8-.2-2.8 0-4.7 1.7-4.7 4.9V10H7v3h3.1v8Z"/></svg></a><a class="social-icon social-whatsapp" id="footerWhatsappIcon" href="#kontak" aria-label="WhatsApp BumiLoka Farm" title="WhatsApp" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20.4l1.3-4.9A8.4 8.4 0 1 1 20.5 11.7Z"/><path d="M8.2 7.7c.2-.4.4-.4.7-.4h.5c.2 0 .3.1.4.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4 0 .6.5.8 1.2 1.5 2 1.9.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.3.3.6-.1.6-.5 1.2-1.1 1.4-.6.3-1.4.3-2.1 0-1.1-.4-2.4-1.2-3.5-2.4-1-1.1-1.5-2.2-1.6-3.1-.1-.7.2-1.3.8-1.7Z"/></svg></a></div></div>
+    <div class="footer-column"><h3>Jelajahi</h3><a href="/">Beranda</a><a href="/#produk">Katalog Produk</a><a href="/#tentang">Tentang Kami</a><a href="/keranjang">Keranjang Belanja</a></div>
+    <div class="footer-column footer-contact-column"><h3>Hubungi Kami</h3><p id="footerContactText">Untuk informasi ketersediaan dan pemesanan, hubungi kami melalui WhatsApp.</p><div class="footer-contact-detail"><span class="contact-symbol">⌖</span><span id="alamatUsahaFooter">Informasi alamat usaha dapat dilihat saat tersedia.</span></div><a class="footer-contact" id="footerWhatsapp" href="#kontak">Hubungi melalui WhatsApp <span aria-hidden="true">↗</span></a></div>
+  </div><div class="container footer-bottom"><span>© <span id="currentYear"></span> <span id="namaUsahaCopyright">BumiLoka Farm</span>. Hak cipta dilindungi.</span><a href="#beranda">Kembali ke atas ↑</a></div></footer>
+  <div class="toast" id="siteToast" role="status" aria-live="polite"></div>
+  <script src="/js/publik.js?v=20261026-nav" defer></script><script src="/js/beranda.js?v=20261026-nav" defer></script>
+</body>
+</html>

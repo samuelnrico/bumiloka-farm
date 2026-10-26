@@ -1,0 +1,54 @@
+/* Gaya khusus halaman keuangan, mengikuti palet dashboard BumiLoka Farm. */
+:root { color-scheme: light; }
+body { background: #f2f5ef; color: #243a2c; }
+.navigasi-dashboard { justify-content: flex-end; }
+.navigasi-dashboard a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: #28543b;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background .15s ease, transform .15s ease;
+}
+.navigasi-dashboard a:hover { background: #1e432e; text-decoration: none; }
+.navigasi-dashboard a:focus-visible { outline: 3px solid #9cbea1; outline-offset: 3px; }
+.grid-pendapatan-produk {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+}
+.kartu-pendapatan-produk {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px;
+    border: 1px solid #e3eae0;
+    border-radius: 12px;
+    background: #fbfcfa;
+}
+.nama-produk-pendapatan { color: #4f6253; font-size: 14px; font-weight: 700; overflow-wrap: anywhere; }
+.nilai-pendapatan-produk { color: #28543b; font-size: 22px; line-height: 1.3; overflow-wrap: anywhere; }
+.kartu-pendapatan-produk small { color: #758077; font-size: 12px; }
+.kartu-pendapatan-kosong {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 18px;
+    border: 1px dashed #cfd8ce;
+    border-radius: 10px;
+    color: #68756b;
+    background: #fbfcfa;
+}
+.kaki-halaman { border-top: 1px solid #e3eae0; margin-top: 24px; }
+@media (max-width: 680px) {
+    .grid-pendapatan-produk { grid-template-columns: minmax(0, 1fr); }
+    .kepala-halaman { align-items: flex-start; }
+    .navigasi-dashboard { justify-content: flex-start; margin-top: 16px; }
+    .nilai-pendapatan-produk { font-size: 20px; }
+}

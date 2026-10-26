@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#245b3d">
+  <meta name="description" content="Jelajahi katalog hasil kebun dan peternakan BumiLoka Farm."><title>Katalog Produk | BumiLoka Farm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/publik.css?v=20261026-nav"><link rel="stylesheet" href="/css/katalog-publik.css?v=20261026-nav">
+</head>
+<body>
+<a class="skip-link" href="#konten">Lewati ke konten</a>
+<header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="BumiLoka Farm, beranda">
+        <img class="brand-logo" id="logoUsahaHeader" alt="Logo usaha" hidden>
+        <span class="brand-copy"><strong id="namaUsahaHeader">BumiLoka <em>Farm</em></strong><small id="sloganUsahaHeader">Hasil kebun &amp; peternakan</small></span>
+      </a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Buka navigasi" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button>
+      <nav class="main-nav" id="mainNav" aria-label="Navigasi utama">
+        <a class="nav-link" href="/">Beranda</a>
+        <a class="nav-link active" href="/#produk" aria-current="page">Katalog</a>
+        <a class="nav-link" href="/#tentang">Tentang Kami</a>
+        <a class="nav-link" href="/#kontak">Kontak</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-cart" href="/keranjang" aria-label="Buka keranjang belanja">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+          <span>Keranjang</span><b class="cart-count" id="cartCount">0</b>
+        </a>
+        <a href="/login" class="admin-login-link" aria-label="Login Admin" title="Login Admin">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 21a7 7 0 0 1 14 0"></path></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+<main id="konten">
+  <section class="catalog-hero"><div class="catalog-hero-photo"></div><div class="catalog-hero-shade"></div><div class="container catalog-hero-content"><span class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> KATALOG BUMILOKA FARM</span><h1>Yang baik dari<br><span>kebun dan peternakan.</span></h1><p>Jelajahi produk yang tersedia, periksa harga dan satuannya, lalu pilih kebutuhan Anda.</p><div class="catalog-hero-meta"><span><i></i> Stok siap jual</span><span>Perkebunan · Peternakan</span></div></div></section>
+  <section class="catalog-main"><div class="container">
+    <div class="catalog-heading reveal"><div><span class="eyebrow">PILIH SESUAI KEBUTUHAN</span><h2>Semua produk</h2><p>Produk yang tampil mengikuti ketersediaan stok terbaru.</p></div><div class="catalog-count" id="catalogCount">Memuat produk...</div></div>
+    <div class="catalog-product-toolbar reveal">
+      <div id="catalogCategories" class="category-chips" aria-label="Filter kategori"><button class="chip active" type="button" data-category="semua">Semua produk</button></div>
+      <label class="catalog-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="catalogSearch" type="search" placeholder="Cari produk..." aria-label="Cari produk"></label>
+      <label class="catalog-sort"><span>Urutkan</span><select id="catalogSort" aria-label="Urutkan produk"><option value="relevan">Paling relevan</option><option value="nama">Nama A–Z</option><option value="harga-naik">Harga terendah</option><option value="harga-turun">Harga tertinggi</option></select></label>
+    </div>
+    <div class="active-filter-row"><div class="active-filter-label" id="activeFilterLabel">Menampilkan semua produk</div><button type="button" id="clearFilters" class="clear-filters" hidden>Hapus filter ×</button></div>
+    <div class="catalog-product-grid" id="catalogGrid" aria-live="polite"><div class="loading-state"><span class="loading-spinner"></span><p>Memuat produk BumiLoka...</p></div></div>
+    <p class="catalog-message" id="catalogFooterNote">Harga dan ketersediaan mengikuti data katalog.</p>
+  </div></section>
+  <section class="catalog-bottom-cta"><div class="container catalog-bottom-inner"><div><span class="eyebrow eyebrow-light">DARI BUMILOKA UNTUK ANDA</span><h2>Sudah menemukan yang dicari?</h2><p>Masukkan produk ke keranjang dan lanjutkan pemesanan melalui WhatsApp.</p></div><a class="button button-light" href="/">Kembali ke Beranda <span>↗</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-main"><div class="footer-brand"><a class="brand brand-footer" href="/" aria-label="BumiLoka Farm, kembali ke beranda"><img class="brand-logo brand-logo-footer" id="logoUsahaFooter" alt="Logo usaha" hidden><span class="brand-copy"><strong id="namaUsahaFooter">BumiLoka <em>Farm</em></strong><small id="sloganUsahaFooter">Hasil kebun &amp; peternakan</small></span></a><p>Temukan hasil kebun dan peternakan yang tersedia, lalu hubungi kami untuk pemesanan.</p></div><div class="footer-column"><h3>Jelajahi</h3><a href="/">Beranda</a><a href="/#produk">Katalog Produk</a><a href="/#tentang">Tentang Kami</a></div><div class="footer-column"><h3>Informasi</h3><p>Harga dan ketersediaan mengikuti data katalog. Konfirmasi pesanan dilakukan melalui WhatsApp.</p></div></div><div class="container footer-bottom"><span>© <span id="currentYear"></span> <span id="namaUsahaCopyright">BumiLoka Farm</span></span><span>Dari kebun dan peternakan, untuk Anda.</span></div></footer>
+<div class="toast" id="siteToast" role="status" aria-live="polite"></div><script src="/js/publik.js?v=20261026-nav" defer></script><script src="/js/katalog-publik.js?v=20261026-nav" defer></script>
+</body></html>

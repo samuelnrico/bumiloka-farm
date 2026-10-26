@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hasil Produksi | BumiLoka Farm</title>
+  <link rel="stylesheet" href="/css/hasil-produksi.css">
+  <script src="/js/hasil-produksi.js" defer></script>
+</head>
+<body>
+  <main class="wadah">
+    <header class="header">
+      <div>
+        <p class="eyebrow">OPERASIONAL ADMIN</p>
+        <h1>Hasil Produksi</h1>
+        <p class="subjudul">Catat hasil kebun dan peternakan, lalu konfirmasi jumlah yang siap dijual.</p>
+      </div>
+      <nav class="navigasi-modul" aria-label="Navigasi modul"><a href="/dashboard">Dashboard</a></nav>
+    </header>
+
+    <nav class="tab" aria-label="Menu hasil produksi">
+      <button type="button" class="tab-button aktif" data-tab="produksi">Catat produksi</button>
+      <button type="button" class="tab-button" data-tab="konfirmasi">Konfirmasi siap jual <span id="jumlah-menunggu" class="angka-tab">0</span></button>
+      <button type="button" class="tab-button" data-tab="ternak">Populasi ternak</button>
+    </nav>
+
+    <section class="panel tab-panel" id="panel-produksi">
+      <div class="judul-panel"><div><h2>Catat hasil produksi</h2><p>Produksi baru masuk daftar konfirmasi. Stok penjualan belum bertambah.</p></div></div>
+      <form id="form-produksi" class="form-grid">
+        <label>Jenis produksi *<select id="jenis_produksi" required><option value="sayuran">Panen kebun</option><option value="telur">Produksi telur</option><option value="daging_ayam">Pemrosesan ayam</option></select></label>
+        <label>Produk *<select id="produk_id" required><option value="">Memuat produk...</option></select></label>
+        <label>Tanggal produksi *<input id="tanggal_produksi" type="date" required></label>
+        <label id="label-jumlah">Jumlah hasil (kg) *<input id="jumlah_hasil" type="number" min="0.001" step="0.001" required placeholder="Contoh: 25"></label>
+        <label id="label-ayam" class="tersembunyi">Jumlah ayam diproses (ekor) *<input id="jumlah_ayam_diproses" type="number" min="1" step="1" placeholder="Contoh: 10"></label>
+        <div class="lebar-penuh catatan-info" id="info-jenis">Hasil panen sayuran dicatat dalam kilogram.</div>
+        <div class="lebar-penuh"><button class="utama" type="submit" id="simpan-produksi">Simpan hasil produksi</button><p class="pesan" id="pesan-produksi" role="status"></p></div>
+      </form>
+    </section>
+
+    <section class="panel tab-panel tersembunyi" id="panel-konfirmasi">
+      <div class="judul-panel"><div><h2>Konfirmasi stok siap jual</h2><p>Jumlah layak dan tidak layak harus sama dengan total produksi. Jika ada hasil tidak layak, alasan wajib diisi.</p></div><button type="button" class="sekunder" id="muat-ulang-produksi">Muat ulang</button></div>
+      <div id="daftar-menunggu" class="daftar-menunggu"><p class="kosong">Memuat hasil produksi...</p></div>
+    </section>
+
+    <section class="panel tab-panel tersembunyi" id="panel-ternak">
+      <div class="judul-panel"><div><h2>Populasi ternak</h2><p>Total dihitung dari penambahan, kematian, koreksi, dan pemrosesan ternak.</p></div></div>
+      <div class="kartu-populasi" id="ringkasan-populasi"><div class="kartu"><span>Ayam petelur</span><strong>Memuat...</strong></div><div class="kartu"><span>Ayam potong</span><strong>Memuat...</strong></div></div>
+      <h3>Perbarui jumlah ternak</h3><p class="subjudul">Catat ternak baru, kematian, atau koreksi jumlah.</p>
+      <form id="form-ternak" class="form-grid">
+        <label>Jenis ternak *<select id="jenis_ternak" required><option value="ayam_petelur">Ayam petelur</option><option value="ayam_potong">Ayam potong</option></select></label>
+        <label>Perubahan *<select id="jenis_perubahan" required><option value="penambahan">Tambah ternak</option><option value="kematian">Kematian</option><option value="koreksi_tambah">Koreksi tambah</option><option value="koreksi_kurang">Koreksi kurang</option></select></label>
+        <label>Tanggal *<input id="tanggal_perubahan" type="date" required></label>
+        <label>Jumlah (ekor) *<input id="jumlah_ternak" type="number" min="1" step="1" required placeholder="Contoh: 20"></label>
+        <label id="label-alasan-koreksi" class="lebar-penuh tersembunyi">Alasan koreksi *<input id="alasan_koreksi" maxlength="1000" placeholder="Contoh: hasil hitung ulang populasi"></label>
+        <div class="lebar-penuh"><button class="utama" type="submit" id="simpan-ternak">Simpan perubahan ternak</button><p class="pesan" id="pesan-ternak" role="status"></p></div>
+      </form>
+      <h3>Riwayat perubahan terbaru</h3>
+      <div class="tabel-responsif"><table><thead><tr><th>Tanggal</th><th>Jenis ternak</th><th>Perubahan</th><th>Jumlah</th><th>Catatan</th></tr></thead><tbody id="riwayat-ternak"><tr><td colspan="5">Memuat riwayat...</td></tr></tbody></table></div>
+    </section>
+
+    <section class="panel">
+      <div class="judul-panel"><div><h2>Riwayat hasil produksi</h2><p>Termasuk produksi yang menunggu konfirmasi dan yang sudah diproses.</p></div><button type="button" class="sekunder" id="muat-ulang-semua">Muat ulang</button></div>
+      <div class="tabel-responsif"><table><thead><tr><th>Tanggal</th><th>Jenis</th><th>Produk</th><th>Jumlah</th><th>Status</th><th>Layak jual</th></tr></thead><tbody id="riwayat-produksi"><tr><td colspan="6">Memuat riwayat...</td></tr></tbody></table></div>
+    </section>
+    <p class="footer-note">Stok katalog hanya bertambah setelah hasil produksi dikonfirmasi. Produksi ayam mengurangi populasi pada saat pemrosesan dicatat.</p>
+  </main>
+</body>
+</html>

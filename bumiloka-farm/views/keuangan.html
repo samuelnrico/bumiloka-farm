@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biaya dan Laba | BumiLoka Farm</title>
+    <link rel="stylesheet" href="/css/penjualan.css">
+    <link rel="stylesheet" href="/css/keuangan.css">
+</head>
+<body>
+<main class="halaman">
+    <header class="kepala-halaman">
+        <div>
+            <p class="eyebrow">KEUANGAN USAHA</p>
+            <h1>Keuangan Usaha</h1>
+            <p class="subjudul">
+                Laporan pemasukan dan pengeluaran yang diambil dari transaksi penjualan, pembelian bahan, dan biaya tambahan.
+            </p>
+        </div>
+        <nav class="navigasi navigasi-dashboard" aria-label="Navigasi utama">
+            <a href="/dashboard">Dashboard</a>
+        </nav>
+    </header>
+
+    <p id="pesan-global" class="pesan-global" role="status" hidden></p>
+
+    <section class="panel">
+        <div class="judul-panel">
+            <div>
+                <h2>Laporan Keuangan</h2>
+                <p>
+                    Pendapatan hanya berasal dari penjualan yang selesai dan sudah dibayar. Pembelian bahan dan biaya tambahan dijumlahkan berdasarkan tanggal masing-masing transaksi.
+                </p>
+            </div>
+        </div>
+
+        <form id="form-filter-laporan" class="grid-form">
+            <label>
+                Dari tanggal
+                <input type="date" id="laporan-dari" required>
+            </label>
+            <label>
+                Sampai tanggal
+                <input type="date" id="laporan-sampai" required>
+            </label>
+            <div class="lebar">
+                <button class="tombol utama" type="submit">
+                    Tampilkan Laporan
+                </button>
+            </div>
+        </form>
+
+        <p id="status-laporan" class="status-tabel">
+            Memuat laporan...
+        </p>
+
+        <div class="ringkasan">
+            <article>
+                <span>Pendapatan terealisasi (selesai dan dibayar)</span>
+                <strong id="laporan-pendapatan">Rp0</strong>
+            </article>
+            <article>
+                <span>Pembelian bahan operasional</span>
+                <strong id="laporan-pembelian">Rp0</strong>
+            </article>
+            <article>
+                <span>Biaya tambahan</span>
+                <strong id="laporan-biaya-tambahan">Rp0</strong>
+            </article>
+            <article>
+                <span>Total pengeluaran tercatat</span>
+                <strong id="laporan-biaya">Rp0</strong>
+            </article>
+            <article>
+                <span>Selisih pendapatan dan pengeluaran</span>
+                <strong id="laporan-laba">Rp0</strong>
+            </article>
+        </div>
+
+        <p id="info-alokasi" class="status-tabel"></p>
+
+        <h3>Pendapatan per Produk</h3>
+        <p>Biaya tidak dialokasikan per produk, sehingga tabel ini hanya menampilkan pendapatan penjualan yang terealisasi.</p>
+        <div id="daftar-laba-produk" class="grid-pendapatan-produk" aria-live="polite">
+            <p class="kartu-pendapatan-kosong">Memuat data...</p>
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="judul-panel">
+            <div>
+                <h2 id="judul-form-biaya">Catat Biaya Tambahan</h2>
+                <p>
+                    Hanya untuk pengeluaran yang belum dicatat di Barang Masuk. Pembelian bibit, pupuk, pestisida, pakan, dan obat dicatat melalui Barang Masuk agar tidak terhitung dua kali.
+                </p>
+            </div>
+        </div>
+
+        <form id="form-biaya">
+            <div class="grid-form">
+                <label>
+                    Tanggal biaya
+                    <input type="date" id="tanggal-biaya" required>
+                </label>
+
+                <label>
+                    Kategori biaya
+                    <select id="kategori-biaya" required>
+                        <option value="">Pilih kategori</option>
+                        <option value="kemasan">Kemasan</option>
+                        <option value="pemrosesan">Pemrosesan</option>
+                        <option value="lainnya">Lainnya</option>
+                    </select>
+                </label>
+
+                <label class="lebar">
+                    Keterangan biaya
+                    <input
+                        type="text"
+                        id="keterangan-biaya"
+                        maxlength="500"
+                        placeholder="Contoh: pembelian pakan ayam"
+                        required
+                    >
+                </label>
+
+                <div class="lebar info-biaya">Jumlah dan satuan tidak wajib untuk biaya tambahan. Cukup isi keterangan dan total yang benar-benar dibayarkan.</div>
+
+                <label>
+                    Total biaya (Rp)
+                    <input
+                        type="number"
+                        id="total-biaya"
+                        min="1"
+                        step="1"
+                        required
+                    >
+                </label>
+
+                <label class="lebar">
+                    Catatan (opsional)
+                    <textarea
+                        id="catatan-biaya"
+                        rows="2"
+                        maxlength="2000"
+                    ></textarea>
+                </label>
+            </div>
+
+            <p id="pesan-form" class="pesan-form" role="status"></p>
+
+            <button class="tombol utama" id="tombol-simpan-biaya" type="submit">
+                Simpan Biaya
+            </button>
+            <button class="tombol sekunder" id="tombol-batal-edit"
+                    type="button" hidden>
+                Batal Edit
+            </button>
+        </form>
+    </section>
+
+    <section class="panel">
+        <div class="judul-panel">
+            <div>
+                <h2>Riwayat Biaya Tambahan</h2>
+                <p>Maksimal 500 catatan terbaru.</p>
+            </div>
+            <button class="tombol sekunder" id="tombol-muat-biaya"
+                    type="button">
+                Muat Ulang
+            </button>
+        </div>
+
+        <div class="tabel-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Kategori</th>
+                        <th>Keterangan</th>
+                        <th>Jumlah</th>
+                        <th>Total Biaya</th>
+                        <th>Catatan</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="daftar-biaya">
+                    <tr><td colspan="7">Memuat biaya...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer class="kaki-halaman">
+        <span>BumiLoka Farm · Keuangan</span>
+    </footer>
+</main>
+
+<script src="/js/keuangan.js"></script>
+</body>
+</html>

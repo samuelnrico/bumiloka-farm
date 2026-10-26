@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk | BumiLoka Farm</title>
+    <style>
+        :root{--hijau:#28543b;--latar:#f1f5f1;--teks:#243a2c;--garis:#dce3da;--muted:#657267}
+        *{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;padding:22px;background:var(--latar);color:var(--teks);font-family:Arial,sans-serif}
+        main{max-width:1180px;margin:auto}.atas,.aksi,.filter{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+        h1{margin:0 0 6px;font-size:26px}h2{margin:0 0 14px;font-size:19px}p{line-height:1.5}.muted{color:var(--muted);font-size:14px}
+        .panel{background:#fff;border:1px solid #e7e9e2;border-radius:14px;padding:20px;margin:18px 0;box-shadow:0 2px 8px #20332308}
+        button,.tautan{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border:0;border-radius:8px;background:var(--hijau);color:white;text-decoration:none;cursor:pointer;font:inherit}
+        button.secondary{background:#657267}button:disabled{opacity:.6;cursor:wait}
+        .form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}label{display:block;margin-bottom:6px;font-size:13px;font-weight:700}
+        input,select,textarea{width:100%;padding:11px;border:1px solid #ccd4cc;border-radius:8px;background:#fff;color:inherit;font:inherit;min-width:0}
+        input:focus,select:focus,textarea:focus{outline:2px solid #a5c7ae;border-color:var(--hijau)}textarea{resize:vertical;min-height:70px}
+        .full{grid-column:1/-1}.checkbox{display:flex;align-items:center;gap:9px}.checkbox input{width:auto}
+        details{margin-top:14px;border-top:1px solid var(--garis);padding-top:12px}summary{cursor:pointer;font-weight:700;font-size:14px}
+        .form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.message{min-height:20px;margin:12px 0;color:var(--hijau);font-size:14px}
+        .foto-upload{display:flex;flex-direction:column;gap:8px}.foto-preview{display:flex;align-items:center;gap:12px;margin-top:8px}.foto-preview img{width:96px;height:96px;object-fit:cover;border:1px solid var(--garis);border-radius:10px;background:#f7f9f7}.foto-preview small{color:var(--muted)}
+        .filter{margin:12px 0}.filter input{max-width:360px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:850px}th,td{padding:12px 10px;border-bottom:1px solid #e7e9e2;text-align:left;vertical-align:middle}th{font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted)}td{font-size:14px}
+        .product-name{font-weight:700}.sub{font-size:12px;color:var(--muted);margin-top:4px}.pill{display:inline-block;border-radius:99px;background:#edf4ee;padding:5px 9px;font-size:12px;white-space:nowrap}.pill.off{background:#f7e9e7;color:#8a3026}.pill.hidden{background:#f4f0df;color:#79631e}
+        .stock{font-weight:700;font-variant-numeric:tabular-nums}.row-actions{display:flex;gap:7px;flex-wrap:wrap}.row-actions button{padding:7px 10px;font-size:12px}.empty{padding:20px;text-align:center;color:var(--muted)}
+        @media(max-width:760px){body{padding:12px}.panel{padding:15px}.form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.atas{align-items:flex-start}}
+        @media(max-width:480px){.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.filter input{max-width:none;width:100%}.atas .tautan{width:100%}}
+    </style>
+</head>
+<body>
+<main>
+    <header class="atas">
+        <div><h1>Produk</h1><div class="muted">Daftarkan produk dan pantau stok siap jual dari satu halaman.</div></div>
+        <a class="tautan" href="/dashboard">Dashboard</a>
+    </header>
+
+    <section class="panel" id="panel-form">
+        <h2 id="judul-form">Tambah produk</h2>
+        <form id="form-produk">
+            <input type="hidden" id="produk-id">
+            <div class="form-grid">
+                <div><label for="nama_produk">Nama produk *</label><input id="nama_produk" maxlength="150" placeholder="Contoh: Kangkung" required></div>
+                <div><label for="jenis_produk">Jenis produk *</label><select id="jenis_produk" required><option value="sayuran">Sayuran / hasil kebun</option><option value="telur">Telur</option><option value="daging_ayam">Daging ayam</option></select></div>
+                <div><label for="harga_jual">Harga jual (Rp) *</label><input id="harga_jual" type="number" min="0" step="0.01" placeholder="0" required></div>
+                <div><label for="satuan_jual">Dijual per *</label><select id="satuan_jual" required><option value="kg">Kilogram (kg)</option><option value="butir">Butir</option><option value="paket">Paket</option></select></div>
+                <div id="bagian-berat" hidden><label for="berat_paket_kg">Berat tiap paket (kg) *</label><input id="berat_paket_kg" type="number" min="0.001" step="0.001"></div>
+                <div class="checkbox" style="align-self:end;padding:10px 0"><input id="ditampilkan" type="checkbox" checked><label for="ditampilkan" style="margin:0">Tampilkan di katalog pelanggan</label></div>
+            </div>
+            <details>
+                <summary>Informasi tambahan (opsional)</summary>
+                <div class="form-grid" style="margin-top:14px">
+                    <div class="full foto-upload"><label for="foto_produk">Foto produk (opsional)</label><input id="foto_produk" type="file" accept="image/jpeg,image/png,image/webp,image/gif"><small class="muted">Pilih gambar dari perangkat (JPG, PNG, WEBP, atau GIF; maksimal 3 MB). Tidak perlu memasukkan URL.</small><input id="foto_lama" type="hidden"><div class="foto-preview" id="foto-preview" hidden><img id="foto-preview-img" alt="Pratinjau foto produk"><small id="foto-preview-keterangan"></small></div></div>
+                    <div class="full"><label for="deskripsi">Deskripsi produk</label><textarea id="deskripsi" placeholder="Informasi singkat tentang produk"></textarea></div>
+                </div>
+            </details>
+            <p class="muted" id="info-satuan">Stok dicatat dalam kg. Kategori dan satuan stok ditentukan otomatis berdasarkan jenis produk.</p>
+            <p class="message" id="pesan" role="status" aria-live="polite"></p>
+            <div class="form-actions"><button type="submit" id="tombol-simpan">Simpan produk</button><button type="button" id="tombol-batal" class="secondary" hidden>Batal edit</button></div>
+        </form>
+    </section>
+
+    <section class="panel">
+        <div class="atas"><div><h2 style="margin-bottom:4px">Daftar produk</h2><div class="muted">Stok dihitung dari pergerakan batch dan diperbarui otomatis.</div></div></div>
+        <div class="filter"><input id="cari-produk" type="search" placeholder="Cari nama produk..." aria-label="Cari nama produk"><select id="filter-kategori" aria-label="Filter kategori" style="max-width:220px"><option value="semua">Semua kategori</option><option value="perkebunan">Perkebunan</option><option value="peternakan">Peternakan</option></select><span class="muted" id="status-daftar">Memuat data...</span></div>
+        <div class="table-wrap"><table><thead><tr><th>Produk</th><th>Kategori</th><th>Stok tersedia</th><th>Harga jual</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="daftar-produk"></tbody></table></div>
+    </section>
+</main>
+<script src="/js/produk.js"></script>
+</body>
+</html>

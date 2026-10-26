@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjualan | BumiLoka Farm</title>
+    <link rel="stylesheet" href="/css/penjualan.css">
+</head>
+<body>
+<main class="halaman">
+    <header class="kepala-halaman">
+        <div>
+            <p class="eyebrow">OPERASIONAL FARM</p>
+            <h1>Penjualan</h1>
+            <p class="subjudul">Buat transaksi, kelola pembayaran, dan pantau stok yang terjual.</p>
+        </div>
+        <nav class="navigasi-modul" aria-label="Navigasi modul"><a href="/dashboard">Dashboard</a></nav>
+    </header>
+
+    <p id="pesan-global" class="pesan-global" role="status" hidden></p>
+
+    <section class="ringkasan" aria-label="Ringkasan penjualan">
+        <article><span>Total transaksi</span><strong id="stat-transaksi">-</strong></article>
+        <article><span>Nilai transaksi aktif</span><strong id="stat-nilai">-</strong></article>
+        <article><span>Menunggu pembayaran</span><strong id="stat-belum-bayar">-</strong></article>
+    </section>
+
+    <section class="panel">
+        <div class="judul-panel"><div><h2>Catat Penjualan Baru</h2><p>Masukkan semua item dalam satu keranjang. Stok berkurang saat transaksi tersimpan.</p></div></div>
+        <form id="form-penjualan">
+            <div class="grid-form">
+                <label>Nama pelanggan <input id="nama-pelanggan" maxlength="120" placeholder="Nama pelanggan (opsional)"></label>
+                <label>Nomor WhatsApp <input id="whatsapp-pelanggan" maxlength="25" placeholder="08xxxxxxxxxx"></label>
+                <label>Sumber penjualan
+                    <select id="sumber-penjualan" required>
+                        <option value="whatsapp">WhatsApp</option><option value="langsung">Pembelian langsung</option><option value="telepon">Telepon</option><option value="lainnya">Lainnya</option>
+                    </select>
+                </label>
+                <label class="lebar">Catatan <textarea id="catatan-penjualan" maxlength="2000" rows="2" placeholder="Catatan transaksi (opsional)"></textarea></label>
+            </div>
+            <div class="tambah-item">
+                <label class="lebar">Pilih produk
+                    <select id="pilih-batch"><option value="">Memuat stok tersedia...</option></select>
+                    <small id="info-batch">Pilih produk untuk melihat total stok dan harga.</small>
+                </label>
+                <label>Jumlah jual <input id="jumlah-jual" type="number" min="0.001" step="0.001" placeholder="Contoh: 2"></label>
+                <button id="tombol-tambah-item" class="tombol sekunder" type="button">Tambah Produk</button>
+            </div>
+            <div class="tabel-scroll">
+                <table><thead><tr><th>Produk / Batch</th><th>Jumlah</th><th>Harga Satuan</th><th>Subtotal</th><th>Aksi</th></tr></thead><tbody id="daftar-item"><tr><td colspan="5">Belum ada item.</td></tr></tbody></table>
+            </div>
+            <div class="total-form"><span>Total penjualan</span><strong id="total-penjualan">Rp0</strong></div>
+            <p id="pesan-form" class="pesan-form" role="status"></p>
+            <button class="tombol utama" id="tombol-simpan" type="submit">Simpan Penjualan</button>
+        </form>
+    </section>
+
+    <section class="panel">
+        <div class="judul-panel"><div><h2>Transaksi Berjalan</h2><p>Transaksi yang belum selesai atau belum dibayar. Kelola statusnya di sini agar tidak bercampur dengan transaksi lama.</p></div><button class="tombol sekunder" id="tombol-muat-ulang" type="button">Muat Ulang</button></div>
+        <label class="pencarian">Cari transaksi berjalan <input id="cari-transaksi" type="search" placeholder="Kode, pelanggan, atau WhatsApp..."></label>
+        <p id="status-berjalan" class="status-tabel">Memuat transaksi...</p>
+        <div class="tabel-scroll">
+            <table><thead><tr><th>Tanggal</th><th>Kode</th><th>Pelanggan</th><th>Item</th><th>Total</th><th>Status Penjualan</th><th>Status Pembayaran</th><th>Aksi</th></tr></thead><tbody id="daftar-berjalan"></tbody></table>
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="judul-panel"><div><h2>Riwayat Transaksi</h2><p>Hanya transaksi selesai dan dibayar, serta transaksi yang dibatalkan. Bagian ini untuk melihat detail, bukan mengelola transaksi berjalan.</p></div></div>
+        <label class="pencarian">Cari riwayat <input id="cari-riwayat" type="search" placeholder="Kode, pelanggan, atau WhatsApp..."></label>
+        <p id="status-riwayat" class="status-tabel">Memuat riwayat...</p>
+        <div class="tabel-scroll">
+            <table><thead><tr><th>Tanggal</th><th>Kode</th><th>Pelanggan</th><th>Item</th><th>Total</th><th>Status Penjualan</th><th>Status Pembayaran</th><th>Aksi</th></tr></thead><tbody id="daftar-riwayat"></tbody></table>
+        </div>
+    </section>
+
+    <section class="panel" id="panel-detail" hidden>
+        <div class="judul-panel"><div><h2 id="judul-detail">Detail Penjualan</h2><p id="info-detail"></p></div><button type="button" class="tombol sekunder" id="tutup-detail">Tutup</button></div>
+        <div class="tabel-scroll"><table><thead><tr><th>Produk</th><th>Batch</th><th>Jumlah Jual</th><th>Harga</th><th>Subtotal</th><th>Stok Terpakai</th></tr></thead><tbody id="daftar-detail"></tbody></table></div>
+        <div class="total-form"><span>Total transaksi</span><strong id="total-detail">Rp0</strong></div>
+    </section>
+
+    <footer class="kaki-halaman"><a href="/dashboard">Kembali ke Dashboard</a><span>BumiLoka Farm · Penjualan</span></footer>
+</main>
+<script src="/js/penjualan.js"></script>
+</body>
+</html>
