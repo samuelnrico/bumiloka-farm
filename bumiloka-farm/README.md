@@ -82,6 +82,12 @@ Sebelum menjalankan aplikasi, siapkan:
 
 8. Buka alamat lokal sesuai port yang dikonfigurasi, misalnya `http://localhost:3000`, jika `PORT` diatur ke `3000`.
 
+## Panduan Pengguna
+
+Petunjuk penggunaan aplikasi tersedia pada file [`PANDUAN_PENGGUNA.md`](PANDUAN_PENGGUNA.md).
+
+Dokumentasi screenshot dapat ditemukan pada folder [`docs/screenshots/`](docs/screenshots/).
+
 ## Konfigurasi Environment
 
 Contoh isi `.env`:
@@ -96,7 +102,14 @@ DB_PASSWORD=isi_password_database_lokal
 SESSION_SECRET=ganti_dengan_secret_acak_yang_panjang
 ```
 
-Sesuaikan nilai konfigurasi dengan lingkungan masing-masing. Jangan mengunggah file `.env` ke repositori publik.
+## Membuat Akun Admin Pertama
+
+1. Pastikan PostgreSQL berjalan dan database `bumiloka_farm` telah dibuat.
+2. Pastikan seluruh tabel dan constraint telah disiapkan dari skema database proyek.
+3. Buat akun admin pertama menggunakan mekanisme inisialisasi admin yang disediakan aplikasi.
+4. Gunakan password yang kuat dan simpan kredensial secara aman.
+5. Buka `/login`, lalu masuk menggunakan akun yang telah dibuat.
+6. Setelah berhasil masuk, periksa dashboard dan pastikan data usaha dapat dikelola.
 
 ## Penggunaan Aplikasi
 
